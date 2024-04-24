@@ -1,0 +1,62 @@
+$default-height: 150px
+
+@mixin center($vertical: center)
+    display: flex
+    align-items: $vertical
+    justify-content: center
+
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+.row
+    &::after
+        content: ''
+        clear: both
+        display: table
+
+    @for $i from 1 through 12
+        .col-#{$i}
+            width: calc(100% / 12 * $i)
+            float: left
+
+    @for $i from 1 through 3
+        .column-#{$i}
+            background: #eee
+            height: $default-height
+            @include center(start)
+            padding: 15px
+            @if $i != 3
+                margin-right: 15px
+
+body
+    font-family: Arial, sans-serif
+    margin: 0 20px
+    font-size: 15px
+    > *
+        margin: 20px
+
+header
+    text-align: center
+    font-size: 2em
+
+nav
+    height: calc($default-height / 3)
+    @include center()
+    background: #eee
+    a
+        margin: 0 15px
+
+.characteristic
+    background: #eee
+    height: $default-height
+    padding: 20px
+    margin-bottom: 20px
+    text-align: center
+
+footer
+    background: #eee
+    @include center()
+    height: calc($default-height / 3)
+    padding: 20px

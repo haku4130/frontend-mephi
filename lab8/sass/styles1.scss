@@ -1,0 +1,5 @@
+@for $i from 1 to 101 {
+  .item#{$i} {
+    color: rgb($i, 256 - $i, 0);
+  }
+}

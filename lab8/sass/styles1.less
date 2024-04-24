@@ -1,0 +1,8 @@
+.loop(@i) when (@i <= 101) {
+  .item@{i} {
+    color: rgb(@i, 256 - @i, 0);
+  }
+  .loop(@i + 1);
+}
+
+.loop(1);
